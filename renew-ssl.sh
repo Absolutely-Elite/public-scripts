@@ -13,10 +13,10 @@ KEY_PATH="/etc/letsencrypt/live/$DOMAIN/privkey.pem"
 FULLCHAIN_PATH="/etc/letsencrypt/live/$DOMAIN/fullchain.pem"
 
 echo "=== Issuing SSL certificate for $DOMAIN and $WWW_DOMAIN ==="
-acme.sh --issue -d "$DOMAIN" -d "$WWW_DOMAIN" --webroot "$WEBROOT" --force
+~/.acme.sh/acme.sh --issue -d "$DOMAIN" -d "$WWW_DOMAIN" --webroot "$WEBROOT" --force
 
 echo "=== Installing SSL certificate ==="
-acme.sh --install-cert -d "$DOMAIN" --ecc \
+~/.acme.sh/acme.sh --install-cert -d "$DOMAIN" --ecc \
 --key-file "$KEY_PATH" \
 --fullchain-file "$FULLCHAIN_PATH" \
 --reloadcmd "systemctl restart lsws"
