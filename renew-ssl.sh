@@ -14,6 +14,10 @@ FULLCHAIN_PATH="/etc/letsencrypt/live/$DOMAIN/fullchain.pem"
 
 echo "=== Issuing SSL certificate for $DOMAIN and $WWW_DOMAIN ==="
 ~/.acme.sh/acme.sh --issue -d "$DOMAIN" -d "$WWW_DOMAIN" --webroot "$WEBROOT" --force
+if [ $? -ne 0 ]; then
+    echo "❌ SSL issuance failed for $DOMAIN. Aborting installation."
+    exit 1
+fi
 
 echo "=== Installing SSL certificate ==="
 ~/.acme.sh/acme.sh --install-cert -d "$DOMAIN" --ecc \
