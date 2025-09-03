@@ -5,5 +5,5 @@ wget -qO- https://raw.githubusercontent.com/Absolutely-Elite/public-scripts/refs
 
 # Renew SSL Cert
 ```
-wget -qO- https://raw.githubusercontent.com/Absolutely-Elite/public-scripts/refs/heads/main/renew-ssl.sh | bash
+wget -qO- https://raw.githubusercontent.com/Absolutely-Elite/public-scripts/refs/heads/main/renew-ssl.sh | bash -s example.com
 ```
